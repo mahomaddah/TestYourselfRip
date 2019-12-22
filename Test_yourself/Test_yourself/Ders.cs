@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Test_yourself
 {
-    class Ders
+    public class Ders
     {
+        
     }
 }

@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace Test_yourself
 {
-    class Ogretmen
+    public class Ogretmen:User 
     {
+        public List<Ders> Dersler { get; set; } // ogretmenin dersleri
+
     }
 }
