@@ -37,7 +37,7 @@
             <CheckBox Content="Öğretmenim" Name="OgretmenCheckbx"  HorizontalAlignment="Left" Margin="96,196,0,0" VerticalAlignment="Top"/>
         </Grid>
         <Button Width="150" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,65" Content="LOGIN" Click="LoginClick" />
-        <TextBlock Text="Kayıt mı olacaksınız?" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="30" Foreground="Gray" Cursor="Hand"/>
+        <TextBlock Text="Kayıt mı olacaksınız?"  HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="30" Foreground="Gray" Cursor="Hand"/>
         <Image Source="Assets/home.png" Width="100" Height="100" VerticalAlignment="Top" Margin="30"/>
     </Grid>
 </Window>

@@ -50,8 +50,9 @@ namespace Test_yourself
             {
                 if (UsernameTextBx.Text != "" && PasswordTextBx.Password != "")
                 {
-                    MessageBox.Show("Ogrenciyim");
+                   
                     this.Hide();
+                    new MainWindow().ShowDialog();
                     // new student panel
                     // data base e baglanip 
                 }
