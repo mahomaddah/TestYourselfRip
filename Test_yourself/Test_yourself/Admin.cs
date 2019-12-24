@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Test_yourself
 {
-    class Admin
+    class Admin:User
     {
     }
 }

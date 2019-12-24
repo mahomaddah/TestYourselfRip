@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace Test_yourself
 {
-    class Ogrenci
-    {
+    public class Ogrenci:User
+    {  
+        List<string> CalsimasiGerekenKonular = new List<string>();//bir konu 2 kere varsa daha cok calismasi gerekir demek
+
     }
 }
