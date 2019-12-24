@@ -9,6 +9,6 @@ namespace Test_yourself
     public class Ogretmen:User 
     {
         public List<Ders> Dersler { get; set; } // ogretmenin dersleri
-
+        
     }
 }

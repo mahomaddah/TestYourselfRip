@@ -8,7 +8,13 @@ namespace Test_yourself
 {
     public class Ogrenci:User
     {  
-        List<string> CalsimasiGerekenKonular = new List<string>();//bir konu 2 kere varsa daha cok calismasi gerekir demek
+        public List<string> CalsimasiGerekenKonular { get; set; } //bir konu 2 kere varsa daha cok calismasi gerekir demek
+        public List<Ogretmen> DersiniAldigiOgretmenler { get; set; }//denizhoca.yapayzekaDersi gibi
+        public DateTime DersCalismis { get; set; }
+        public int ToplamHataSayisi { get; set; }
+        public int ToplamSoruCozmus { get; set; }
+        //dogru cozme orani ve butun sorulari bitirme oranlari yukaridaki 2 sayilardan hesaplanir
+        public List<string> GecmisSinavSoncLarMesajlari { get; set; }//onceki sinavlarim
 
     }
 }
