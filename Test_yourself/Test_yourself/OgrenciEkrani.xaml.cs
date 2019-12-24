@@ -26,7 +26,9 @@ namespace Test_yourself
 
             Consumo consumo = new Consumo();
             DataContext = new ConsumoViewModel(consumo);
-        }
+            TimeText.Visibility = Visibility.Hidden;
+
+        }     
 
         private void ButtonFechar_Click(object sender, RoutedEventArgs e)
         {
@@ -38,8 +40,31 @@ namespace Test_yourself
             DragMove();
         }
 
+        private void IstaBtn_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+            new MainWindow().ShowDialog();           
+        }
 
+        private void SinavOlBtn_Click(object sender, RoutedEventArgs e)
+        {
+            // zaman basla
+            TimeText.Visibility = Visibility.Visible;
+           
+        }
+
+        private void SinavLarimBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void CikisYapBtn_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+            new LoginEkrani().ShowDialog();
+        }
     }
+
 
     internal class ConsumoViewModel
     {
@@ -59,7 +84,7 @@ namespace Test_yourself
 
         public Consumo()
         {
-            tittle = "Yillik miktar";
+            tittle = "Bütün Zamanların";
             Yuzdesi = YuzdeHesapla();
         }
 
