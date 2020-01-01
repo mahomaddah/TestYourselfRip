@@ -130,6 +130,11 @@ namespace Test_yourself
                 timer.Stop();
             }//sorularbitti ise
         }
+
+        private void AwnserTextBx_MouseEnter(object sender, MouseEventArgs e)
+        {
+            AwnserTextBx.Text = "";
+        }
     }
 
 
