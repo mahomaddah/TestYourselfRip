@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace Test_yourself
 {
@@ -20,15 +21,34 @@ namespace Test_yourself
     /// </summary>
     public partial class MainWindow : Window
     {
+        private int time = 1800;//20 soru 1.5 er dk
+        private DispatcherTimer timer;
+
         public MainWindow()
         {
             InitializeComponent();
-
+            timer = new DispatcherTimer();
+            timer.Interval = new TimeSpan(0, 0, 1);
+            timer.Tick += Timer_tick;
             Consumo consumo = new Consumo();
             DataContext = new ConsumoViewModel(consumo);
             TimeText.Visibility = Visibility.Hidden;
 
-        }     
+        }
+
+        private void Timer_tick(object sender, EventArgs e)
+        {
+            if (time > 0)
+            {
+                time--;
+                TimeText.Content = string.Format("{0}:{1}", time / 60, time % 60);
+            }
+            else
+            {
+                timer.Stop();
+                MessageBox.Show("zaman Bitti");// sinav bitme senariyosu 
+            }
+        }
 
         private void ButtonFechar_Click(object sender, RoutedEventArgs e)
         {
@@ -57,14 +77,17 @@ namespace Test_yourself
         private void SinavOlBtn_Click(object sender, RoutedEventArgs e)
         {
             // zaman basla
-            TimeText.Visibility = Visibility.Visible;
+            timer.Start();
+            TimeText.Visibility = Visibility.Visible;           
             DuzSayfaGetir();
+            if (false) { timer.Stop(); }//sorularbitti ise
 
         }
 
         private void SinavLarimBtn_Click(object sender, RoutedEventArgs e)
         {
             TimeText.Visibility = Visibility.Hidden;
+            timer.Stop();
             DuzSayfaGetir();
         }
 

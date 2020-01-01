@@ -306,6 +306,6 @@
                 </Button>
             </StackPanel>
         </Grid>
-        <Label Content="60:20"  Name="TimeText" FontFamily="Champagne &amp; Limousines" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" FontSize="14" FontWeight="Bold"  Margin="692,1,0,0" Foreground="#DDFFFFFF" Visibility="Hidden"/>
+        <Label Content="30:00"  Name="TimeText" FontFamily="Champagne &amp; Limousines" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" FontSize="14" FontWeight="Bold"  Margin="692,1,0,0" Foreground="#DDFFFFFF" Visibility="Hidden"/>
     </Grid>
 </Window>
