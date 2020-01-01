@@ -23,6 +23,7 @@ namespace Test_yourself
     {
         private int time = 1800;//20 soru 1.5 er dk
         private DispatcherTimer timer;
+        private int oAnSoru;
 
         public MainWindow()
         {
@@ -32,8 +33,23 @@ namespace Test_yourself
             timer.Tick += Timer_tick;
             Consumo consumo = new Consumo();
             DataContext = new ConsumoViewModel(consumo);
-            TimeText.Visibility = Visibility.Hidden;
+            SinavOlmamak();
 
+
+        }
+        private void SinavOlmamak()
+        {
+            TimeText.Visibility = Visibility.Hidden;
+            NextSoruBtn.Visibility = Visibility.Hidden;
+            LabelSoru.Visibility = Visibility.Hidden;
+            AwnserTextBx.Visibility = Visibility.Hidden;
+        }
+        private void SinavOlmak()
+        {
+            TimeText.Visibility = Visibility.Visible;
+            NextSoruBtn.Visibility = Visibility.Visible;
+            LabelSoru.Visibility = Visibility.Visible;
+            AwnserTextBx.Visibility = Visibility.Visible;
         }
 
         private void Timer_tick(object sender, EventArgs e)
@@ -75,18 +91,19 @@ namespace Test_yourself
             BorderG2.Visibility = Visibility.Hidden;
         }
         private void SinavOlBtn_Click(object sender, RoutedEventArgs e)
-        {
+        {            
             // zaman basla
             timer.Start();
-            TimeText.Visibility = Visibility.Visible;           
+            SinavOlmak();
             DuzSayfaGetir();
-            if (false) { timer.Stop(); }//sorularbitti ise
+            
+           
 
         }
 
         private void SinavLarimBtn_Click(object sender, RoutedEventArgs e)
         {
-            TimeText.Visibility = Visibility.Hidden;
+            SinavOlmamak();
             timer.Stop();
             DuzSayfaGetir();
         }
@@ -95,6 +112,23 @@ namespace Test_yourself
         {
             this.Close();
             new LoginEkrani().ShowDialog();
+        }
+        
+
+        private void NextSoruBtn_Click(object sender, RoutedEventArgs e)
+        {
+            //yeni soru ()...
+            oAnSoru++;
+            if (oAnSoru == 20)
+            {
+                NextSoruBtn.Content = "Sınavı Sonlandır";
+            }
+            if (oAnSoru==21)
+            {                
+                oAnSoru = 0;
+                MessageBox.Show("Basarilar sorulari "+ TimeText.Content.ToString() + " surede bitirdiniz ... Sonuc :");
+                timer.Stop();
+            }//sorularbitti ise
         }
     }
 

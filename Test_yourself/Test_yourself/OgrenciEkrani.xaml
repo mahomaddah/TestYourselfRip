@@ -29,7 +29,7 @@
                 </Setter>
             </Style>
 
-            <!--ScrollBars-->
+            <!--Scrollari-->
             <Style x:Key="{x:Type ScrollBar}" TargetType="{x:Type ScrollBar}">
                 <Setter Property="Stylus.IsFlicksEnabled" Value="false" />
                 <Setter Property="Foreground" Value="LightGray" />
@@ -307,5 +307,12 @@
             </StackPanel>
         </Grid>
         <Label Content="30:00"  Name="TimeText" FontFamily="Champagne &amp; Limousines" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" FontSize="14" FontWeight="Bold"  Margin="692,1,0,0" Foreground="#DDFFFFFF" Visibility="Hidden"/>
+
+        <Label Name="LabelSoru" Content="1.Soru?" HorizontalAlignment="Left" Height="211" Margin="92,53,0,0"  FontFamily="Champagne &amp; Limousines" FontSize="40" VerticalAlignment="Top" Width="644" Grid.Column="1" Grid.Row="1"/>
+
+        <TextBlock Name="AwnserTextBx" HorizontalAlignment="Left" FontFamily="Champagne &amp; Limousines" FontSize="40" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="199" Margin="92,281,0,0" Width="644" Grid.Column="1" Grid.Row="1"/>
+
+        <Button Background="#FF8522BD" BorderBrush="#FF8522BD" Name="NextSoruBtn" Content="Sonraki Soru" HorizontalAlignment="Left" VerticalAlignment="Top" Width="180" Margin="76,508,0,0" Grid.Row="1" Height="32" Grid.Column="1" Click="NextSoruBtn_Click"/>
+
     </Grid>
 </Window>
