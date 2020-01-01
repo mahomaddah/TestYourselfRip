@@ -29,7 +29,7 @@
                 </Setter>
             </Style>
 
-            <!--ScrollBars-->
+            <!--ScrollBarlari-->
             <Style x:Key="{x:Type ScrollBar}" TargetType="{x:Type ScrollBar}">
                 <Setter Property="Stylus.IsFlicksEnabled" Value="false" />
                 <Setter Property="Foreground" Value="LightGray" />
