@@ -32,8 +32,23 @@ namespace Test_yourself
             timer.Tick += Timer_tick;
             Consumo consumo = new Consumo();
             DataContext = new ConsumoViewModel(consumo);
-            TimeText.Visibility = Visibility.Hidden;
+            SinavOlmamak();
 
+
+        }
+        private void SinavOlmamak()
+        {
+            TimeText.Visibility = Visibility.Hidden;
+            NextSoruBtn.Visibility = Visibility.Hidden;
+            LabelSoru.Visibility = Visibility.Hidden;
+            AwnserTextBx.Visibility = Visibility.Hidden;
+        }
+        private void SinavOlmak()
+        {
+            TimeText.Visibility = Visibility.Visible;
+            NextSoruBtn.Visibility = Visibility.Visible;
+            LabelSoru.Visibility = Visibility.Visible;
+            AwnserTextBx.Visibility = Visibility.Visible;
         }
 
         private void Timer_tick(object sender, EventArgs e)
@@ -78,7 +93,7 @@ namespace Test_yourself
         {
             // zaman basla
             timer.Start();
-            TimeText.Visibility = Visibility.Visible;           
+            SinavOlmak();
             DuzSayfaGetir();
             if (false) { timer.Stop(); }//sorularbitti ise
 
@@ -86,7 +101,7 @@ namespace Test_yourself
 
         private void SinavLarimBtn_Click(object sender, RoutedEventArgs e)
         {
-            TimeText.Visibility = Visibility.Hidden;
+            SinavOlmamak();
             timer.Stop();
             DuzSayfaGetir();
         }
