@@ -27,6 +27,7 @@ namespace Test_yourself
 
         public MainWindow()
         {
+            LoginControl();         
             InitializeComponent();
             timer = new DispatcherTimer();
             timer.Interval = new TimeSpan(0, 0, 1);
@@ -91,7 +92,8 @@ namespace Test_yourself
             BorderG2.Visibility = Visibility.Hidden;
         }
         private void SinavOlBtn_Click(object sender, RoutedEventArgs e)
-        {            
+        {
+            LabelSoru.Height = 211;
             // zaman basla
             timer.Start();
             SinavOlmak();
@@ -104,6 +106,9 @@ namespace Test_yourself
         private void SinavLarimBtn_Click(object sender, RoutedEventArgs e)
         {
             SinavOlmamak();
+            LabelSoru.Height = 480;
+            LabelSoru.Visibility = Visibility.Visible;
+            LabelSoru.Content = "gecmis sinavlariniz : 1. sinaviniz : dsfsadf\n2.sdfsdfasdddddddddddd";//ogrenci.GecmisSinavSoncLarMesajlari.listele foretch te 
             timer.Stop();
             DuzSayfaGetir();
         }
@@ -135,6 +140,27 @@ namespace Test_yourself
         {
             AwnserTextBx.Text = "";
         }
+
+        private void LoginControl()
+        {
+            if (LoginEkrani.kullanici == 2)
+            {
+                //ogrenciyim
+            }
+            else if (LoginEkrani.kullanici == 1)
+            {
+                //adminim
+            }
+            else
+            {
+                //hocayim
+            }                                          
+        }
+
+        private void DerslerimBTN_Click(object sender, RoutedEventArgs e)
+        {         
+            
+        }
     }
 
 
@@ -148,6 +174,8 @@ namespace Test_yourself
             Consumo.Add(consumo);
         }
     }
+
+  
 
     internal class Consumo
     {
