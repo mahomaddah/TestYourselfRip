@@ -66,15 +66,25 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AdminPlan.xaml.cs">
+      <DependentUpon>AdminPlan.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Ders.cs" />
     <Compile Include="LoginEkrani.xaml.cs">
       <DependentUpon>LoginEkrani.xaml</DependentUpon>
     </Compile>
     <Compile Include="Ogrenci.cs" />
     <Compile Include="Ogretmen.cs" />
+    <Compile Include="OgretmenFormu.xaml.cs">
+      <DependentUpon>OgretmenFormu.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Sinav.cs" />
     <Compile Include="Soru.cs" />
     <Compile Include="User.cs" />
+    <Page Include="AdminPlan.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="LoginEkrani.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -92,6 +102,10 @@
       <DependentUpon>OgrenciEkrani.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="OgretmenFormu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

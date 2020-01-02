@@ -10,7 +10,7 @@ namespace Test_yourself
     {
         public string DersIsmi { get; set; }
         public string DersinHocasi { get; set; }
-        List<Soru> soruHavuzu { get; set; }
-        List<string> dersinKonulari { get; set; }// ogretmen ders yaratinca her sorunun konusu en az bir kez yazilir ogrenci ders alinca calismasi gerekene birer kez eklenir
+        public List<Soru> soruHavuzu { get; set; }
+        public List<string> dersinKonulari { get; set; }// ogretmen ders yaratinca her sorunun konusu en az bir kez yazilir ogrenci ders alinca calismasi gerekene birer kez eklenir
     }
 }

@@ -30,8 +30,9 @@ namespace Test_yourself
             if (UsernameTextBx.Text.ToLower() == "admin" && PasswordTextBx.Password == "1234567")
             {
                 kullanici = 1;
-                MessageBox.Show("Adminim");
-                new MainWindow().ShowDialog();
+                this.Hide();
+                new AdminPlan().ShowDialog();
+
                 // admin girisi
                 // new admin panel
                 
@@ -40,9 +41,9 @@ namespace Test_yourself
                 if (UsernameTextBx.Text != "" && PasswordTextBx.Password != "")
                 {
                     kullanici = 3;
-                    MessageBox.Show("Ogretmenim");
+                    
                     this.Hide();
-                    new MainWindow().ShowDialog();
+                    new OgretmenFormu().ShowDialog();
                     // new teacher panel
                     // data base e baglanip 
                     
