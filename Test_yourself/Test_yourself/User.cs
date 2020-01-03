@@ -11,7 +11,6 @@ namespace Test_yourself
         
         public string Username { get; set; }
         public string Password { get; set; }
-        public int Numara { get; set; }
-        public string KullaniciTuru { get; set; }//admin Ogretmen Ogrenci
+        public int Numara { get; set; }    
     }
 }

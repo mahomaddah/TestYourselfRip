@@ -1,4 +1,4 @@
-﻿<Window x:Class="Test_yourself.MainWindow"
+﻿<Window x:Class="Test_yourself.AdminPlan"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -245,7 +245,7 @@
             </Grid.Effect>
 
             <Grid Background="#FFA46FE4">
-                <TextBlock Text="ÖĞRENCİ EKRANI" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="WS Simple Gallifreyan" Foreground="#FFBC96EA" FontSize="16"/>
+                <TextBlock Text="ADMIN EKRANI" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="WS Simple Gallifreyan" Foreground="#FFBC96EA" FontSize="16"/>
             </Grid>
 
             <StackPanel Grid.Row="1">
@@ -256,7 +256,7 @@
                     </Grid>
                 </Button>
 
-                <Button Margin="10" Background="#FF8522BD" BorderBrush="#FF8522BD" Name="ProfilBtn" Click="ProfilBtn_Click">
+                <Button Margin="10" Background="#FF8522BD" BorderBrush="#FF8522BD" Name="ProfilBtn">
                     <Grid Width="150">
                         <materialDesign:PackIcon Kind="Account" VerticalAlignment="Center"/>
                         <TextBlock HorizontalAlignment="Center" Text="PROFIL" FontFamily="Champagne &amp; Limousines"/>
@@ -283,14 +283,25 @@
                         <TextBlock HorizontalAlignment="Center" Text="ÇIKIŞ YAP" FontFamily="Champagne &amp; Limousines"/>
                     </Grid>
                 </Button>
-
-                <Button Margin="10" Background="#FF8522BD" BorderBrush="#FF8522BD" Name="AyarlarBtn">
+                <Button Margin="10" Background="#FF8522BD" BorderBrush="#FF8522BD" x:Name="AyarlarBtn">
                     <Grid Width="150">
                         <materialDesign:PackIcon Kind="Settings" VerticalAlignment="Center"/>
                         <TextBlock HorizontalAlignment="Center" Text="AYARLAR" FontFamily="Champagne &amp; Limousines"/>
                     </Grid>
                 </Button>
+                <Button  Margin="10" Background="#FF8522BD" BorderBrush="#FF8522BD" x:Name="DerslerimBTN" Click="DerslerimBTN_Click">
+                    <Grid Width="150">
+                        <materialDesign:PackIcon Kind="Book" VerticalAlignment="Center"/>
+                        <TextBlock HorizontalAlignment="Center" Text="DERSLERIM" FontFamily="Champagne &amp; Limousines"/>
+                    </Grid>
+                </Button>
             </StackPanel>
+            <Button  Margin="10,376,10,62" Background="#FF8522BD" BorderBrush="#FF8522BD" x:Name="DersEkle" Click="DersEkle_Click" Height="Auto" Grid.Row="1" >
+                <Grid Width="150">
+                    <materialDesign:PackIcon Kind="BookAdd" VerticalAlignment="Center"/>
+                    <TextBlock HorizontalAlignment="Center" Text="DERS EKLE" FontFamily="Champagne &amp; Limousines"/>
+                </Grid>
+            </Button>
         </Grid>
 
         <Grid x:Name="GridBarraTittle" Grid.ColumnSpan="2" Background="#FF8522BD" MouseDown="GridBarraTittle_MouseDown">
@@ -313,6 +324,6 @@
         <TextBox Name="AwnserTextBx" HorizontalAlignment="Left" FontFamily="Champagne &amp; Limousines" FontSize="40" TextWrapping="Wrap" Text="Cevabiniz.." VerticalAlignment="Top" Height="199" Margin="92,281,0,0" Width="644" Grid.Column="1" Grid.Row="1" MouseEnter="AwnserTextBx_MouseEnter"/>
 
         <Button Background="#FF8522BD" BorderBrush="#FF8522BD" Name="NextSoruBtn" Content="Sonraki Soru" HorizontalAlignment="Left" VerticalAlignment="Top" Width="180" Margin="76,508,0,0" Grid.Row="1" Height="32" Grid.Column="1" Click="NextSoruBtn_Click"/>
-
+        
     </Grid>
 </Window>

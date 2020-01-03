@@ -23,23 +23,30 @@ namespace Test_yourself
         {
             InitializeComponent();
         }
+        public static short kullanici { get; set; }//1=admin 2=ogrenci 3= ogretmen
 
         private void LoginClick(object sender, RoutedEventArgs e)
         {
             if (UsernameTextBx.Text.ToLower() == "admin" && PasswordTextBx.Password == "1234567")
             {
-                MessageBox.Show("Adminim");
+                kullanici = 1;
+                this.Hide();
+                new AdminPlan().ShowDialog();
+
                 // admin girisi
                 // new admin panel
+                
             }
             else if (OgretmenCheckbx.IsChecked==true ){
                 if (UsernameTextBx.Text != "" && PasswordTextBx.Password != "")
                 {
-                    MessageBox.Show("Ogretmenim");
+                    kullanici = 3;
+                    
                     this.Hide();
-                    new MainWindow().ShowDialog();
+                    new OgretmenFormu().ShowDialog();
                     // new teacher panel
                     // data base e baglanip 
+                    
                 }
                 else
                 {
@@ -50,11 +57,12 @@ namespace Test_yourself
             {
                 if (UsernameTextBx.Text != "" && PasswordTextBx.Password != "")
                 {
-                   
+                    kullanici = 2;
                     this.Hide();
                     new MainWindow().ShowDialog();
                     // new student panel
                     // data base e baglanip 
+                    
                 }
                 else
                 {
