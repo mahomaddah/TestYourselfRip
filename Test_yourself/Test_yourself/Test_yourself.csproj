@@ -70,6 +70,7 @@
       <DependentUpon>AdminPlan.xaml</DependentUpon>
     </Compile>
     <Compile Include="Ders.cs" />
+    <Compile Include="dersvio.cs" />
     <Compile Include="LoginEkrani.xaml.cs">
       <DependentUpon>LoginEkrani.xaml</DependentUpon>
     </Compile>

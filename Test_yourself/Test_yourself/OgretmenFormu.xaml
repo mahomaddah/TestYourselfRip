@@ -129,19 +129,6 @@
                         <TextBlock HorizontalAlignment="Center" Text="PROFIL" FontFamily="Champagne &amp; Limousines"/>
                     </Grid>
                 </Button>
-
-                <Button  Margin="10" Background="#FF8522BD" BorderBrush="#FF8522BD" Name="DerslerimBTN" Click="DerslerimBTN_Click">
-                    <Grid Width="150">
-                        <materialDesign:PackIcon Kind="Book" VerticalAlignment="Center"/>
-                        <TextBlock HorizontalAlignment="Center" Text="DERSLERIM" FontFamily="Champagne &amp; Limousines"/>
-                    </Grid>
-                </Button>
-                <Button  Margin="10" Background="#FF8522BD" BorderBrush="#FF8522BD" x:Name="DersEkle" Click="DersEkle_Click" >
-                    <Grid Width="150">
-                        <materialDesign:PackIcon Kind="BookAdd" VerticalAlignment="Center"/>
-                        <TextBlock HorizontalAlignment="Center" Text="DERS EKLE" FontFamily="Champagne &amp; Limousines"/>
-                    </Grid>
-                </Button>
                 <Button Margin="10" Background="#FF8522BD" BorderBrush="#FF8522BD" x:Name="AyarlarBtn">
                     <Grid Width="150">
                         <materialDesign:PackIcon Kind="Settings" VerticalAlignment="Center"/>
@@ -154,7 +141,20 @@
                         <TextBlock HorizontalAlignment="Center" Text="ÇIKIŞ YAP" FontFamily="Champagne &amp; Limousines"/>
                     </Grid>
                 </Button>
+                <Button  Margin="10" Background="#FF8522BD" BorderBrush="#FF8522BD" x:Name="DerslerimBTN" Click="DerslerimBTN_Click">
+                    <Grid Width="150">
+                        <materialDesign:PackIcon Kind="Book" VerticalAlignment="Center"/>
+                        <TextBlock HorizontalAlignment="Center" Text="DERSLERIM" FontFamily="Champagne &amp; Limousines"/>
+                    </Grid>
+                </Button>
+                <Button  Margin="10" Background="#FF8522BD" BorderBrush="#FF8522BD" x:Name="DersEkle" Click="DersEkle_Click" >
+                    <Grid Width="150">
+                        <materialDesign:PackIcon Kind="BookAdd" VerticalAlignment="Center"/>
+                        <TextBlock HorizontalAlignment="Center" Text="DERS EKLE" FontFamily="Champagne &amp; Limousines"/>
+                    </Grid>
+                </Button>
             </StackPanel>
+            <TextBox Name="DersEkleIsim" HorizontalAlignment="Left" Height="42" FontSize="25" Foreground="White" Background="YellowGreen"  Visibility="Hidden" Margin="10,272,0,0" Grid.Row="1" TextWrapping="Wrap" TextAlignment="Center" Text="Ders ismi girin.." VerticalAlignment="Top" FontFamily="Champagne &amp; Limousines" Width="180" MouseEnter="DersEkleIsim_MouseEnter"/>
         </Grid>
 
         <Grid x:Name="GridBarraTittle" Grid.ColumnSpan="2" Background="#FF8522BD" MouseDown="GridBarraTittle_MouseDown">
@@ -172,10 +172,20 @@
         </Grid>
 
         <Button Background="#FF8522BD" BorderBrush="#FF8522BD" Name="OgretmenOnayBtn" Content="Soru Ekle" HorizontalAlignment="Left" VerticalAlignment="Top" Width="180" Margin="76,508,0,0" Grid.Row="1" Height="32" Grid.Column="1" Click="OgretmenOnayBtn_Click_1"  />
-        <ListView Grid.Column="1" HorizontalAlignment="Left" Background="Pink" Height="340" Margin="53,104,0,0" Grid.Row="1" VerticalAlignment="Top" Width="726">
+        <ListView Grid.Column="3" HorizontalAlignment="Left" Background="Pink" Height="340" Margin="53,104,0,0" Grid.Row="1" VerticalAlignment="Top" Width="726" Name="ListViewum" Visibility="Hidden" ItemsSource="{Binding deneme}">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn/>
+                    <GridViewColumn DisplayMemberBinding="{Binding SoruMetni}" Header="Soru Metni" Width="150"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Cevap}" Header="Cevap" Width="150"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding SoruKonusu}" Header="Soru Konusu" Width="150"/>
+
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <ListView Grid.Column="3" HorizontalAlignment="Left" Background="Pink" Height="340" Margin="53,104,0,0" Grid.Row="1" VerticalAlignment="Top" Width="726" Name="DersListView"  MouseDoubleClick="DersListView_MouseDoubleClick">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding DersIsmi}" Header="Ders Ismi:" Width="150"/>
                 </GridView>
             </ListView.View>
         </ListView>

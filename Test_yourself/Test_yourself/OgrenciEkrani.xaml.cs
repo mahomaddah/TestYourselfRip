@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data.SqlClient;
 using System.Windows.Threading;
 
 namespace Test_yourself
@@ -21,12 +22,34 @@ namespace Test_yourself
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        Ogretmen Ogretmen;
+        Ders ders;
+        Soru soru;
         private int time = 1800;//20 soru 1.5 er dk
         private DispatcherTimer timer;
         private int oAnSoru;
 
         public MainWindow()
         {
+            Ogretmen = new Ogretmen();
+            ders = new Ders();
+            ders.soruHavuzu = new List<Soru>();
+            SqlConnection conn = new SqlConnection("Server=MAHOLAPTOP\\SQLEXPRESS;Database=TestYourselfDB;Integrated Security=True;");
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM [dbo].[Soru]", conn);
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                soru = new Soru();
+                soru.SoruMetni = reader.GetString(1);
+                soru.Cevap = reader.GetString(2);
+                soru.SoruKonusu = reader.GetString(3);
+                ders.soruHavuzu.Add(soru);
+
+            }
+            reader.Close();
+            conn.Close();
             LoginControl();         
             InitializeComponent();
             timer = new DispatcherTimer();
@@ -98,9 +121,12 @@ namespace Test_yourself
             timer.Start();
             SinavOlmak();
             DuzSayfaGetir();
-            
-           
+            SoruHazirlan(0);
 
+        }
+        private void SoruHazirlan(int i)
+        {
+            LabelSoru.Content = ders.soruHavuzu.ElementAt(i).SoruMetni;
         }
 
         private void SinavLarimBtn_Click(object sender, RoutedEventArgs e)
@@ -108,7 +134,7 @@ namespace Test_yourself
             SinavOlmamak();
             LabelSoru.Height = 480;
             LabelSoru.Visibility = Visibility.Visible;
-            LabelSoru.Content = "gecmis sinavlariniz : 1. sinaviniz : dsfsadf\n2.sdfsdfasdddddddddddd";//ogrenci.GecmisSinavSoncLarMesajlari.listele foretch te 
+            LabelSoru.Content = "gecmis sinavlariniz : 1. sinaviniz : 240 aldim 20 s de\n2. 300 aldim 20 dk da";//ogrenci.GecmisSinavSoncLarMesajlari.listele foretch te 
             timer.Stop();
             DuzSayfaGetir();
         }
@@ -118,10 +144,11 @@ namespace Test_yourself
             this.Close();
             new LoginEkrani().ShowDialog();
         }
-        
 
+        public int j = 1;
         private void NextSoruBtn_Click(object sender, RoutedEventArgs e)
-        {
+        { j++;
+            SoruHazirlan(j);
             //yeni soru ()...
             oAnSoru++;
             if (oAnSoru == 20)
@@ -134,6 +161,7 @@ namespace Test_yourself
                 MessageBox.Show("Basarilar sorulari "+ TimeText.Content.ToString() + " surede bitirdiniz ... Sonuc :");
                 timer.Stop();
             }//sorularbitti ise
+
         }
 
         private void AwnserTextBx_MouseEnter(object sender, MouseEventArgs e)
@@ -150,16 +178,27 @@ namespace Test_yourself
             else if (LoginEkrani.kullanici == 1)
             {
                 //adminim
+                
+                
             }
             else
             {
                 //hocayim
+                
             }                                          
         }
 
         private void DerslerimBTN_Click(object sender, RoutedEventArgs e)
         {         
             
+        }
+
+        private void ProfilBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (LoginEkrani.kullanici == 1)
+            {
+                /// derslerimi goruntule...
+            }
         }
     }
 
